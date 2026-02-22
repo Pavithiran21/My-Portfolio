@@ -78,13 +78,6 @@ export const About = () => {
             </div>
 
             {/* Resume */}
-            {/* <div className="resume-wrapper">
-              <a href="https://drive.google.com/file/d/1GsYw6NIR005tS8wj6jkpUkZGVVvipayH/view?usp=sharing" target="_blank" rel="noreferrer">
-                <Button className="resume-btn" size="lg">
-                  <FaDownload /> Download Resume
-                </Button>
-              </a>
-            </div> */}
             <div className="resume-container">
               <a href={Resume} download="Pavithiran_R_Resume.pdf" className="resume-btn">
                 <FaDownload /> Download Resume

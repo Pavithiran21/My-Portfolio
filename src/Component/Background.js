@@ -18,21 +18,9 @@ const floatingCodeSnippets = [
   'yarn install\nyarn dev\nyarn test\nyarn build\nvercel deploy\nnetlify deploy --prod'
 ];
 
-// const centerTexts = [
-//   'const dev = { code: true };',
-//   'function build() { }',
-//   'while(alive) { code(); }',
-//   'if(coffee) { code(); }',
-//   'const skills = [];'
-// ];
-
 export const Background = () => {
   const [leftCode, setLeftCode] = useState(0);
   const [rightCode, setRightCode] = useState(0);
-  const [floatingCode, setFloatingCode] = useState(0);
-  // const [centerText, setCenterText] = useState('');
-  const [centerIndex, setCenterIndex] = useState(0);
-  const [charIndex, setCharIndex] = useState(0);
 
   useEffect(() => {
     const leftInterval = setInterval(() => {
@@ -51,27 +39,8 @@ export const Background = () => {
       clearInterval(leftInterval);
       clearInterval(rightInterval);
       clearInterval(floatingInterval);
-    };
+    }
   }, []);
-
-  // useEffect(() => {
-  //   const currentText = centerTexts[centerIndex];
-    
-  //   if (charIndex < currentText.length) {
-  //     const timeout = setTimeout(() => {
-  //       setCenterText(currentText.slice(0, charIndex + 1));
-  //       setCharIndex(charIndex + 1);
-  //     }, 150);
-  //     return () => clearTimeout(timeout);
-  //   } else {
-  //     const timeout = setTimeout(() => {
-  //       setCenterIndex((centerIndex + 1) % centerTexts.length);
-  //       setCharIndex(0);
-  //       setCenterText('');
-  //     }, 2500);
-  //     return () => clearTimeout(timeout);
-  //   }
-  // }, [charIndex, centerIndex]);
 
   return (
     <>
