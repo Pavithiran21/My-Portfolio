@@ -2,7 +2,7 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { FaBriefcase, FaServer, FaCloud, FaDownload } from "react-icons/fa";
-import Resume from './Resune/Pavithiran_R_SoftwareDeveloper.pdf';
+import Resume from './Resume/Pavithiran_R_SoftwareDeveloper.pdf';
 
 export const About = () => {
   return (
