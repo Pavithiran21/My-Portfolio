@@ -12,7 +12,7 @@ export const ProjectDetails = () => {
       <Container>
         <h2 className="section-title">{'<Projects />'}</h2>
         <p className="section-subtitle">
-          // Building scalable applications with modern tech stack
+          → Building scalable applications with modern tech stack
         </p>
         <Row className="g-4">
           <Col md={6}>

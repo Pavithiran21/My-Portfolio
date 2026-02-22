@@ -41,16 +41,16 @@ export const Home = () => {
               {/* Professional Summary */}
               <p className="hero-description">
                 <span className="comment-line">
-                  // Full Stack Developer with 1+ year experience
+                  → Full Stack Developer with 1+ year experience
                 </span><br />
                 <span className="comment-line">
-                  // Currently working as Junior Software Developer at DJ Computing
+                  → Currently working as Junior Software Developer at DJ Computing
                 </span><br />
                 <span className="comment-line">
-                  // Building and maintaining live production APIs
+                  → Building and maintaining live production APIs
                 </span><br />
                 <span className="comment-line">
-                  // Open to Software Developer opportunities
+                  → Open to Software Developer opportunities
                 </span>
               </p>
 
