@@ -64,7 +64,7 @@ export const Contact = () => {
                 </div>
               </a>
 
-              <a href="https://www.linkedin.com/in/pavithiran-r-9a950b172" target="_blank" rel="noreferrer" className="contact-item">
+              <a href="https://www.linkedin.com/in/pavithiran-ramaraj" target="_blank" rel="noreferrer" className="contact-item">
                 <div className="contact-icon">
                   <FaLinkedin />
                 </div>
