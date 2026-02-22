@@ -21,6 +21,7 @@ const floatingCodeSnippets = [
 export const Background = () => {
   const [leftCode, setLeftCode] = useState(0);
   const [rightCode, setRightCode] = useState(0);
+  const [floatingCode, setFloatingCode] = useState(0);
 
   useEffect(() => {
     const leftInterval = setInterval(() => {
