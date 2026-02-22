@@ -1,113 +1,88 @@
-import React from 'react'
-import {Col, Container, Row } from 'react-bootstrap'
-import { BiLogoGithub, BiLogoGmail, BiLogoLinkedin, BiPhone } from "react-icons/bi";
+import React from 'react';
+import { Col, Container, Row } from 'react-bootstrap';
+import { FaGithub, FaLinkedin, FaEnvelope, FaPhone } from 'react-icons/fa';
 
 export const Contact = () => {
-   return (
-      <>
-         <Container fluid className='text-center' id='contact'>
-            <Row>
-                  <h1 class>Contact</h1>
-            </Row>
-            <Row>
-                  <h2>Contact me through the following links at anytime!!!</h2>
-                  <p><b>Drop a Suggesstion,feedback,opportunities or we can colaborate on a project.</b></p>
-            </Row>
-          
-            
-           
-            
+  return (
+    <section id='contact' className="section-padding">
+      <Container>
+        <h2 className="section-title">{'<Contact />'}</h2>
+        <Row className='justify-content-center'>
+          <Col lg={8}>
+            <p className="contact-intro">
+              <span className="comment-line">{"// Let's build something amazing together"}</span><br />
+              <span className="comment-line">{"// Open for opportunities, collaborations, and tech discussions"}</span>
+            </p>
 
-            <Row>
-               <Col sm={12} md={6} lg={4} className='contacts p-3 mx-auto' >
-                  <div className='icon' >
+            <div className="contact-grid">
+              <a href="mailto:pavithiranarthi359@gmail.com" className="contact-item">
+                <div className="contact-icon">
+                  <FaEnvelope />
+                </div>
+                <div className="contact-info">
+                  <h4>Email</h4>
+                  <p>pavithiran.dev21@gmail.com</p>
+                </div>
+              </a>
 
-                   <BiLogoGmail/>
+              <div className="contact-item">
+                <div className="contact-icon">
+                  <FaPhone />
+                </div>
 
-                  </div>
-                  <div  className='mt-2'>
-                     
-                        <p>pavithiranarthi359@gmail.com</p>
-                     
-                   
+                <div className="contact-info">
+                  <h4>Contact</h4>
 
-                  </div>
-                  
-               </Col>
-            
+                  <a href="tel:+918667338337" className="contact-link">
+                    📞 Call : +91 86673 38337
+                  </a>
 
-            </Row>
+                  <a
+                    href="https://wa.me/919486970967"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="contact-link whatsapp"
+                  >
+                    💬 WhatsApp: +91 94869 70967
+                  </a>
 
-            <Row>
-             <Col sm={12} md={6} lg={4} className='contacts p-3 mx-auto' >
-                  <div className='icon'>
-                        <BiPhone/>
-                     </div>
-                     <div className='mt-2'>
-                        <p >9486970967,8667338337</p>
+                  <a href="tel:+919486970967" className="contact-link">
+                    📞Alternate : +91 94869 70967
+                  </a>
 
-                     </div>
-               </Col>
-               
-               
+                </div>
+              </div>
 
-            </Row>
-            <Row>
-               <Col sm={12} md={6} lg={4} className='contacts p-3 mx-auto' >
-                  <div className='icon'>
-                     <BiLogoGithub/>
 
-                  </div>
-                  <div className='mt-3'>
-                     <a
-                        href="https://github.com/Pavithiran21"
-                        target="_blank"
-                        rel="noreferrer"
-                        className="icon-colour  home-social-icons"
-                     >
-                     <p className='contact-all'>Github</p> 
-                     </a>
-                  </div>
-               </Col>
-            
+              <a href="https://github.com/Pavithiran21" target="_blank" rel="noreferrer" className="contact-item">
+                <div className="contact-icon">
+                  <FaGithub />
+                </div>
+                <div className="contact-info">
+                  <h4>GitHub</h4>
+                  <p>@Pavithiran21</p>
+                </div>
+              </a>
 
-            </Row>
- 
-            <Row>
-               <Col sm={10} md={6} lg={4} className='contacts p-3 mx-auto' >
-                  <div className='icon'>
-                     <BiLogoLinkedin/>
-
-                  </div>
-                  <div className='mt-3'>
-                     <a
-                        href="https://www.linkedin.com/in/pavithiran-r-9a950b172"
-                        target="_blank"
-                        rel="noreferrer"
-                        className=""
-                     >
-                        <p className='contact-all'>LinkedIn</p>
-                     </a>
-                     
-
-                  </div>
-               </Col>
-               
-
-            </Row>
-
-         
-         
-         
-          
-             
-            
-
-         
-         </Container>
-      </>
-   )
-}
+              <a href="https://www.linkedin.com/in/pavithiran-r-9a950b172" target="_blank" rel="noreferrer" className="contact-item">
+                <div className="contact-icon">
+                  <FaLinkedin />
+                </div>
+                <div className="contact-info">
+                  <h4>LinkedIn</h4>
+                  <p>Pavithiran R</p>
+                </div>
+              </a>
+            </div>
+          </Col>
+        </Row>
+      </Container>
+      <footer className="footer">
+        <p>{'<Designed & Built by Pavithiran R />'}</p>
+      </footer>
+    </section>
+  );
+};
 
 
 

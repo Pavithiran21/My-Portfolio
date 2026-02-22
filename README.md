@@ -68,3 +68,20 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## Deployment
+
+This project is configured for Vercel deployment.
+
+### Setup:
+1. Push code to GitHub
+2. Go to [vercel.com](https://vercel.com) and sign in with GitHub
+3. Click **Import Project** → Select your repository
+4. Vercel auto-detects settings → Click **Deploy**
+5. Your site will be live at `portfolio.vercel.app`
+
+### Features:
+- Automatic deployments on push
+- Preview URLs for pull requests
+- Free SSL certificate
+- Custom domain support

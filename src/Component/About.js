@@ -1,72 +1,99 @@
-import React from 'react';
-import { Button, Col, Container, Image, Row } from 'react-bootstrap';
-import Profile from './Images/MyProfile.jpg';
-import { FaEye } from 'react-icons/fa';
+// About.jsx
+import React from "react";
+import { Container, Row, Col } from "react-bootstrap";
+import { FaBriefcase, FaServer, FaCloud, FaDownload } from "react-icons/fa";
+import Resume from './Resune/Pavithiran_R_SoftwareDeveloper.pdf';
 
 export const About = () => {
   return (
-    <section id='about' className="py-5">
-      <Container fluid>
-        <Row className='text-center mb-5'>
-          <Col>
-            <h1 className="display-4">Personal Details</h1>
-          </Col>
-        </Row>
-        <Row className='align-items-center g-4'>
-          <Col xs={12} md={6} className='d-flex flex-column justify-content-center'>
-            <div className="pe-md-4">
-              <p className="lead mb-4">
-                A dedicated and motivated Full Stack Developer, I hold a degree from KSR College of Engineering.
-                Additionally, I have successfully completed a comprehensive Full Stack Developer course at Guvi, earning certification.
-                Eager to apply my expertise in front-end and back-end technologies, I am driven by a passion for creating seamless and efficient web applications.
-              </p>
-              <h1 className='blue-text display-5 mb-4'>Work Experience</h1>
-              
-              <div className="mb-4">
-                <h3 className='red-text h4'>Backend Developer Intern</h3>
-                <p className="mb-1"><b>DJ Computing, Coimbatore</b></p>
-                <p className="mb-3"><b>May 2024 - August 2024</b></p>
-                <ul className="list-unstyled">
-                  <li className="mb-2">• Developed APIs for basic CRUD operations utilizing MongoDB with aggregation techniques.</li>
-                  <li className="mb-2">• Gained hands-on experience with Azure and AWS cloud services.</li>
-                  <li className="mb-2">• Contributed to two projects:</li>
-                  <ol className="ps-4">
-                    <li>SmartComm Circuit App: Leveraged Azure for data access.</li>
-                    <li>SNQS Clothing App: Utilized AWS and serverless functions to enhance application performance.</li>
-                  </ol>
+    <section id="about" className="about-section">
+      <Container>
+        <h2 className="section-title">{'<About />'}</h2>
+
+        <Row className="justify-content-center">
+          <Col lg={10}>
+
+            {/* Intro */}
+            <p className="about-intro">
+              Backend‑focused Full Stack Developer with hands‑on experience building
+              production‑ready applications. I specialize in designing scalable REST APIs,
+              authentication systems, and database performance optimization while also
+              developing React based frontend features.
+            </p>
+
+            {/* Technical Skills */}
+            <div className="skills-grid">
+              <div className="skill-card">
+                <h4>Backend</h4>
+                <p>Node.js, Express.js, REST APIs, JWT Auth, RBAC</p>
+              </div>
+
+              <div className="skill-card">
+                <h4>Frontend</h4>
+                <p>React.js, Bootstrap, Responsive UI</p>
+              </div>
+
+              <div className="skill-card">
+                <h4>Database</h4>
+                <p>MongoDB, Aggregation Pipelines, Index Optimization</p>
+              </div>
+
+              <div className="skill-card">
+                <h4>Cloud & DevOps</h4>
+                <p>AWS S3, Azure, Deployment, Git</p>
+              </div>
+            </div>
+
+            {/* Experience */}
+            <div className="experience-section">
+              <h3 className="exp-title"><FaBriefcase size={20} /> Work Experience</h3>
+
+              <div className="exp-item">
+                <div className="exp-header">
+                  <h4><FaServer size={16} />    Junior Software Developer </h4>
+                  <span>Sep 2024 – Present</span>
+                </div>
+                <p className="company">DJ Computing, Coimbatore</p>
+                <ul>
+                  <li>Designed and maintained production REST APIs</li>
+                  <li>Implemented secure authentication & role‑based authorization</li>
+                  <li>Optimized MongoDB aggregation pipelines for performance</li>
+                  <li>Debugged and resolved real‑time production issues</li>
+                  <li>Deployed applications on AWS & Azure cloud environments</li>
                 </ul>
               </div>
 
-              <div className="mb-4">
-                <h3 className='red-text h4'>Full-Time Software Developer</h3>
-                <p className="mb-1"><b>DJ Computing, Coimbatore</b></p>
-                <p className="mb-3"><b>September 2024 - Present</b></p>
-                <ul className="list-unstyled">
-                  <li className="mb-2">• Focused on API development and testing, improving application functionality and performance.</li>
-                  <li className="mb-2">• Acquired skills in troubleshooting and resolving technical issues effectively.</li>
-                  <li className="mb-2">• Continued to expand knowledge in API design and cloud computing solutions.</li>
+              <div className="exp-item">
+                <div className="exp-header">
+                  <h4><FaCloud  size={16}/> Junior Software Developer Intern</h4>
+                  <span>May 2024 – Aug 2024</span>
+                </div>
+                <p className="company">DJ Computing, Coimbatore</p>
+                <ul>
+                  <li>Built CRUD APIs using MongoDB aggregation</li>
+                  <li>Developed serverless backend functions</li>
+                  <li>Assisted in cloud deployment & environment configuration</li>
                 </ul>
               </div>
+            </div>
 
-              <a target='_blank' rel="noreferrer" href='https://drive.google.com/file/d/1GsYw6NIR005tS8wj6jkpUkZGVVvipayH/view?usp=sharing' className="text-decoration-none">
-                <Button variant='outline-success' size="lg" className="d-flex align-items-center gap-2">
-                  <FaEye /> Resume
+            {/* Resume */}
+            {/* <div className="resume-wrapper">
+              <a href="https://drive.google.com/file/d/1GsYw6NIR005tS8wj6jkpUkZGVVvipayH/view?usp=sharing" target="_blank" rel="noreferrer">
+                <Button className="resume-btn" size="lg">
+                  <FaDownload /> Download Resume
                 </Button>
               </a>
+            </div> */}
+            <div className="resume-container">
+              <a href={Resume} download="Pavithiran_R_Resume.pdf" className="resume-btn">
+                <FaDownload /> Download Resume
+              </a>
             </div>
-          </Col>
-          <Col xs={12} md={6} className='d-flex justify-content-center align-items-center'>
-            <Image 
-              src={Profile} 
-              alt='profile' 
-              className='img-fluid rounded shadow-lg' 
-              style={{ maxWidth: '100%', height: 'auto' }} 
-            />
+
           </Col>
         </Row>
-        <hr className="my-5"/>
       </Container>
     </section>
   );
-};
-
+}

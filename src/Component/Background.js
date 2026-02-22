@@ -1,107 +1,90 @@
-import React, { useEffect, useCallback, useMemo, useRef, useState } from 'react';
-import Particles, { initParticlesEngine } from '@tsparticles/react';
-import { loadFull } from 'tsparticles';
+import React, { useEffect, useState } from 'react';
+
+const leftCodeSnippets = [
+  'import React from "react";\nimport { useState } from "react";\n\nconst App = () => {\n  const [data, setData] = useState([]);\n\n  useEffect(() => {\n    fetchData();\n  }, []);\n\n  return (\n    <div className="app">\n      <Header />\n      <Main />\n    </div>\n  );\n};',
+  'const express = require("express");\nconst app = express();\n\napp.use(express.json());\n\napp.get("/api/users", (req, res) => {\n  res.json({ users: [] });\n});\n\napp.listen(3000, () => {\n  console.log("Server running");\n});',
+  'function fibonacci(n) {\n  if (n <= 1) return n;\n  return fibonacci(n-1) + fibonacci(n-2);\n}\n\nconst result = fibonacci(10);\nconsole.log(result);\n\nconst arr = [1,2,3,4,5];\nconst doubled = arr.map(x => x * 2);'
+];
+
+const rightCodeSnippets = [
+  'router.post("/api/data", async (req, res) => {\n  try {\n    const newData = await Data.create(req.body);\n    res.status(201).json(newData);\n  } catch (error) {\n    res.status(500).json({ error: error.message });\n  }\n});',
+  'const mongoose = require("mongoose");\n\nconst schema = new mongoose.Schema({\n  name: String,\n  email: String,\n  createdAt: { type: Date, default: Date.now }\n});\n\nmodule.exports = mongoose.model("User", schema);',
+  'async function fetchData(url) {\n  const response = await fetch(url);\n  const data = await response.json();\n  return data;\n}\n\nfetchData("/api/users")\n  .then(data => console.log(data))\n  .catch(err => console.error(err));'
+];
+
+const floatingCodeSnippets = [
+  'npm install\nnpm start\nnpm run build\ngit add .\ngit commit -m "update"\ngit push origin main',
+  'docker build -t app .\ndocker run -p 3000:3000 app\nkubectl apply -f deploy.yml\nkubectl get pods\nkubectl logs pod-name',
+  'yarn install\nyarn dev\nyarn test\nyarn build\nvercel deploy\nnetlify deploy --prod'
+];
+
+// const centerTexts = [
+//   'const dev = { code: true };',
+//   'function build() { }',
+//   'while(alive) { code(); }',
+//   'if(coffee) { code(); }',
+//   'const skills = [];'
+// ];
 
 export const Background = () => {
-  const containerRef = useRef(null);
-  const [init, setInit] = useState(false);
+  const [leftCode, setLeftCode] = useState(0);
+  const [rightCode, setRightCode] = useState(0);
+  const [floatingCode, setFloatingCode] = useState(0);
+  // const [centerText, setCenterText] = useState('');
+  const [centerIndex, setCenterIndex] = useState(0);
+  const [charIndex, setCharIndex] = useState(0);
 
   useEffect(() => {
-    if (init) {
-      return;
-    }
+    const leftInterval = setInterval(() => {
+      setLeftCode(prev => (prev + 1) % leftCodeSnippets.length);
+    }, 8000);
 
-    initParticlesEngine(async (engine) => {
-      await loadFull(engine);
-    }).then(() => {
-      setInit(true);
-    });
-  }, [init]);
+    const rightInterval = setInterval(() => {
+      setRightCode(prev => (prev + 1) % rightCodeSnippets.length);
+    }, 10000);
 
-  const particlesLoaded = useCallback(
-    (container) => {
-      containerRef.current = container;
-      window.particlesContainer = container;
-    },
-    [containerRef]
-  );
+    const floatingInterval = setInterval(() => {
+      setFloatingCode(prev => (prev + 1) % floatingCodeSnippets.length);
+    }, 6000);
 
-  const options = useMemo(
-    () => ({
-      fullScreen: {
-        zIndex: -1,
-      },
-      particles: {
-        number: {
-          value: 100,
-        },
-        links: {
-          enable: true,
-          opacity: 0.2,
-        },
-        move: {
-          enable: true,
-        },
-      },
-      themes: [
-        {
-          name: 'light',
-          default: {
-            value: true,
-            auto: true,
-            mode: 'light',
-          },
-          options: {
-            background: {
-              color: '#00005C',
-            },
-            particles: {
-              color: {
-                value: '#000000',
-              },
-              links: {
-                color: '#000045',
-              },
-            },
-          },
-        },
-        {
-          name: 'dark',
-          default: {
-            value: true,
-            auto: true,
-            mode: 'dark',
-          },
-          options: {
-            background: {
-              color: '#00005C',
-            },
-            particles: {
-              color: {
-                value: '#ffffff',
-              },
-              links: {
-                color: '#ffffff',
-              },
-            },
-          },
-        },
-      ],
-    }),
-    []
-  );
+    return () => {
+      clearInterval(leftInterval);
+      clearInterval(rightInterval);
+      clearInterval(floatingInterval);
+    };
+  }, []);
 
- 
+  // useEffect(() => {
+  //   const currentText = centerTexts[centerIndex];
+    
+  //   if (charIndex < currentText.length) {
+  //     const timeout = setTimeout(() => {
+  //       setCenterText(currentText.slice(0, charIndex + 1));
+  //       setCharIndex(charIndex + 1);
+  //     }, 150);
+  //     return () => clearTimeout(timeout);
+  //   } else {
+  //     const timeout = setTimeout(() => {
+  //       setCenterIndex((centerIndex + 1) % centerTexts.length);
+  //       setCharIndex(0);
+  //       setCenterText('');
+  //     }, 2500);
+  //     return () => clearTimeout(timeout);
+  //   }
+  // }, [charIndex, centerIndex]);
 
   return (
     <>
-      {init && (
-        <Particles
-          id="tsparticles"
-          particlesLoaded={particlesLoaded}
-          options={options}
-        />
-      )}
+      <div className="grid-background"></div>
+      <div className="code-lines-left">
+        <pre>{leftCodeSnippets[leftCode]}</pre>
+      </div>
+      <div className="code-lines-right">
+        <pre>{rightCodeSnippets[rightCode]}</pre>
+      </div>
+      <div className="floating-code">
+        <pre>{floatingCodeSnippets[floatingCode]}</pre>
+      </div>
     </>
   );
 };

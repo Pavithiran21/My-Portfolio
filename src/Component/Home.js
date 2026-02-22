@@ -1,48 +1,92 @@
 import React from 'react';
 import { Header } from './Header';
-import { Col, Container, Image, Row } from 'react-bootstrap';
+import { Col, Container, Row } from 'react-bootstrap';
 import TypewriterComponent from 'typewriter-effect';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { HiMail } from 'react-icons/hi';
 
 export const Home = () => {
   return (
     <section id="home" className="min-vh-100 d-flex align-items-center">
       <Header />
-      <Container fluid>
-        <Row className='justify-content-center align-items-center min-vh-100 py-5'>
-          <Col sm={12} md={6} lg={6} className="d-flex flex-column justify-content-center">
-            <h1 className="display-4 mb-3">
-              Hello !!<span className='wave'>{String.fromCodePoint(0x1F44B)}</span>
-            </h1>
-            <h1 className="display-3 mb-4">
-              I'm <b className='text-success'>Pavithiran</b>
-            </h1>
-            <h3 className='red-text h2'>
-              <TypewriterComponent
-                options={{
-                  strings: [
-                    "I am a MERN Stack Developer",
-                    "I am a Web Developer",
-                    "I am a Backend Developer",
-                    "I am a Self-Motivator",
-                  ],
-                  autoStart: true,
-                  loop: true,
-                  deleteSpeed: 50,
-                }}
-              />
-            </h3>
-          </Col>
-          <Col sm={12} md={6} lg={6} className='text-center d-flex align-items-center justify-content-center'>
-            <Image
-              src='https://www.webstackacademy.com/wp-content/uploads/2023/01/fullStack-MERN.png'
-              alt='profile-image'
-              fluid
-              className="img-fluid rounded shadow-lg"
-            />
+      <Container>
+        <Row className="justify-content-center align-items-center min-vh-100">
+          <Col lg={10} xl={8}>
+            <div className="hero-content">
+              {/* Intro */}
+              <p className="hero-greeting">$ whoami</p>
+              {/* Name */}
+              <h1 className="hero-name">Pavithiran.R</h1>
+              {/* Role + Expertise */}
+              <h2 className="hero-title">
+                <span className="code-bracket">{'<'}</span>
+                <TypewriterComponent
+                  options={{
+                    strings: [
+                      "Full Stack Developer />",
+                      "Backend Development Experience />",
+                      "Production REST API Development />",
+                      "Auth & Authorization Implementation />",
+                      "Database Query Optimization />"
+                    ],
+                    autoStart: true,
+                    loop: true,
+                    delay: 60,
+                    deleteSpeed: 20,
+                    pauseFor: 2000
+                  }}
+                />
+              </h2>
+
+              {/* Professional Summary */}
+              <p className="hero-description">
+                <span className="comment-line">
+                  // Full Stack Developer with 1+ year experience
+                </span><br />
+                <span className="comment-line">
+                  // Currently working as Junior Software Developer at DJ Computing
+                </span><br />
+                <span className="comment-line">
+                  // Building and maintaining live production APIs
+                </span><br />
+                <span className="comment-line">
+                  // Open to Software Developer opportunities
+                </span>
+              </p>
+
+              {/* CTA Buttons */}
+              <div className="hero-cta">
+                <a href="#project" className="btn-primary-custom">{'<View_Projects />'}</a>
+                <a href="#contact" className="btn-secondary-custom">{'<Contact_Me />'}</a>
+              </div>
+
+              {/* Social Links */}
+              <div className="hero-social">
+                <a
+                  href="https://github.com/Pavithiran21"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="GitHub"
+                >
+                  <FaGithub />
+                </a>
+
+                <a
+                  href="https://www.linkedin.com/in/pavithiran-r-9a950b172"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="LinkedIn"
+                >
+                  <FaLinkedin />
+                </a>
+                <a href="mailto:pavithiran.dev21@gmail.com" aria-label="Email">
+                  <HiMail />
+                </a>
+              </div>
+            </div>
           </Col>
         </Row>
-        <hr className="my-4"/>
       </Container>
     </section>
-  );
-};
+  )
+}
